@@ -1,0 +1,60 @@
+package main
+
+import "fmt"
+
+func main() {
+fmt.Println(e_primo(8))
+fmt.Println(e_primo(97))
+
+fmt.Println(diaDaSemana(1))
+fmt.Println(diaDaSemana(6))
+fmt.Println(diaDaSemana(10))
+
+fmt.Println(e_bissexto(2000))
+fmt.Println(e_bissexto(2023))
+
+
+}
+
+func e_primo(num int) (bool, []int) {
+    divisiveis := []int{}
+
+    for i:= 2; i<=num/2; i++ {
+        if num%i == 0 {
+            divisiveis = append(divisiveis, i)
+        }
+    }
+    if len(divisiveis) == 0 {
+        return true, divisiveis
+    } else {
+        return false, divisiveis
+    }
+}
+
+func diaDaSemana(dia int) string {
+    switch dia {
+    case 1:
+        return "Domingo"
+    case 2:
+        return "Segunda"
+    case 3:
+        return "Terça"
+    case 4:
+        return "Quarta"
+    case 5:
+        return "Quinta"
+    case 6:
+        return "Sexta"
+    case 7:
+        return "Sábado"
+    default:
+        return "Valor Inválido"
+    }
+}
+func e_bissexto(ano int) bool {
+	if ano%4 == 0 && (ano%100 !=0 || ano%400 == 0) {
+		return true // ano é bissexto
+	} else {
+		return false // ano não é bissexto
+	}
+}
